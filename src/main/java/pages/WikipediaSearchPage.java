@@ -5,20 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WikipediaSearchPage {
-    private WebDriver driver;
-    private int timeout = 15;
-    
     private final String pageLoadedText = "Save your favorite articles to read offline, sync your reading lists across devices and customize your reading experience with the official Wikipedia app";
     private final String pageTitle = "Wikipedia";
-    
+    private WebDriver driver;
+    private int timeout = 15;
     @FindBy(xpath = "//input[@id='searchInput']")
     @CacheLookup
     private WebElement searchTextBox;
-    
+
     @FindBy(xpath = "//*[@id='search-form']/fieldset/button")
     @CacheLookup
     private WebElement searchTextButton;
@@ -32,7 +28,7 @@ public class WikipediaSearchPage {
 
     //return the page title text stored as string
     public String verifyPageTitleText() {
-    	return pageTitle;
+        return pageTitle;
     }
 
     /**
@@ -42,9 +38,9 @@ public class WikipediaSearchPage {
      * @param wikiSearch : search text as input
      */
     public void searchWikipedia(String wikiSearch) {
-    	searchTextBox.click();
-    	searchTextBox.sendKeys(wikiSearch);
-    	searchTextButton.click();
+        searchTextBox.click();
+        searchTextBox.sendKeys(wikiSearch);
+        searchTextButton.click();
     }
 
     /**
