@@ -77,7 +77,7 @@ public class GoogleSearchPage {
         try {
             TestUtil.waitForElementToBeClickable(googleSearchLogoImage, 5);
             googleSearchLogoImage.click();
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
             googleSearchFeelingLuckyButton.click();
         } catch (ElementNotVisibleException e) {
             e.printStackTrace();
