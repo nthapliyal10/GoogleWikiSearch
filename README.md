@@ -84,5 +84,7 @@ The project consists of -
    The data - Logistics, coordinates and site-concerns is stored in the file : /src/main/resources/RetrievedData. This data is compared with pre-stored data in     /src/main/resources/BaseData/testDataExpected.csv file.
    
    The result report is generated at - target/site/cucumber-reports.html
+   
+   Note: There were non-ASCII characters present in the data, they have also been handles.
     
 
