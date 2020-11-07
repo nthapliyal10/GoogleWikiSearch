@@ -8,9 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.TestUtil;
 
 public class GoogleMapsSearchPage {
+    private final String pageTitleText = "52\u00B024'00.0\"N 13\u00B048'00.0\"E - Google Maps";
     private WebDriver driver;
-    private final String pageTitleText = "52°24'00.0\"N 13°48'00.0\"E - Google Maps";
-
     @FindBy(id = "searchboxinput")
     @CacheLookup
     private WebElement searchTextBox;
@@ -19,7 +18,8 @@ public class GoogleMapsSearchPage {
     @CacheLookup
     private WebElement searchTextSubmitButton;
 
-    @FindBy(xpath = "//span[text()='Grünheide, 15537 Grünheide (Mark)']")
+    //@FindBy(xpath = "//span[text()='Gr�nheide, 15537 Gr�nheide (Mark)']")
+    @FindBy(xpath = "//span[contains(text(),'15537')]")
     @CacheLookup
     private WebElement searchResultNameText;
 
@@ -28,7 +28,7 @@ public class GoogleMapsSearchPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         System.out.println("--INSIDE GOOGLE MAPS PAGE----");
-        System.out.println("title of the window : "+ driver.getTitle());
+        System.out.println("title of the window : " + driver.getTitle());
     }
 
     public String getPageTitleText() {
@@ -60,12 +60,13 @@ public class GoogleMapsSearchPage {
      * In google maps, search for the specified coordinates
      * by clicking on the search text box and waiting for the result
      * to load.
+     *
      * @param coordinates : coordinates of the place as String
      */
     public void searchForCoordinates(String coordinates) {
         searchTextBox.click();
         searchTextBox.sendKeys(coordinates);
         searchTextSubmitButton.click();
-        TestUtil.waitForElementTobeLoaded(searchResultNameText,5);
+        TestUtil.waitForElementTobeLoaded(searchResultNameText, 5);
     }
 }

@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class WikipediaSearchResultPage {
-    private final HashMap<String, String> data = new HashMap<String, String>();
+    private final HashMap<String, String> data = new HashMap<>();
     private final WebDriver driver;
 
     @FindBy(xpath = "//*[@id='search-form']/fieldset/button")
@@ -63,7 +63,7 @@ public class WikipediaSearchResultPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         System.out.println("--INSIDE WIKIPEDIA SEARCH RESULT PAGE----");
-        System.out.println("title of the WikipediaSearchResultPage window : "+driver.getTitle());
+        System.out.println("title of the WikipediaSearchResultPage window : " + driver.getTitle());
     }
 
     //return the WebElement for header with name=logistics
@@ -78,12 +78,15 @@ public class WikipediaSearchResultPage {
 
     //return the coordinates of the place as text(string)
     public String getCoordinateElementText() {
-        String gigaBerlincoordinates = "52.4°N 13.8°E";
-        return gigaBerlincoordinates;
+        String gigaBerlinCoordinates = "52.4\u00B0N 13.8\u00B0E";
+        System.out.println(gigaBerlinCoordinates);
+        return gigaBerlinCoordinates;
     }
 
     //return the WebElement for header with name=coordinates
-    public WebElement getCoordinateElementValue() { return coordinateValue; }
+    public WebElement getCoordinateElementValue() {
+        return coordinateValue;
+    }
 
     //return the output of the coordinates webElement
     public String getCoordinateValue() {
@@ -107,9 +110,9 @@ public class WikipediaSearchResultPage {
      * @return Map : return the map containing all the data as key-value pair
      * as map
      */
-    public HashMap<String,String> addHeaderAndParagraphDataToMap() {
-        String logisticData = logisticsDetailsParagraph1.getText()+logisticsDetailsParagraph2.getText();
-        String siteConcernsData = siteConcernsDetailsParagraph1.getText()+siteConcernsDetailsParagraph2.getText()+siteConcernsDetailsParagraph3.getText()+siteConcernsDetailsParagraph4.getText()+siteConcernsDetailsParagraph5.getText();
+    public HashMap<String, String> addHeaderAndParagraphDataToMap() {
+        String logisticData = logisticsDetailsParagraph1.getText() + logisticsDetailsParagraph2.getText();
+        String siteConcernsData = siteConcernsDetailsParagraph1.getText() + siteConcernsDetailsParagraph2.getText() + siteConcernsDetailsParagraph3.getText() + siteConcernsDetailsParagraph4.getText() + siteConcernsDetailsParagraph5.getText();
         data.put(coordinateText.getText(), coordinateValue.getText());
         data.put(logisticsHeaderText.getText(), logisticData);
         data.put(siteConcernsHeaderText.getText(), siteConcernsData);

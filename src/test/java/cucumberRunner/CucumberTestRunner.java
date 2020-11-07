@@ -11,8 +11,8 @@ import io.cucumber.testng.CucumberOptions;
  * target/site/cucumber-reports folder.
  */
 
-@CucumberOptions(tags="@Regression", features = "src/test/resources/", glue = {"steps"}, plugin = { "pretty",
-		"html:target/site/cucumber-reports.html", "json:target/cucumber.json" })
+@CucumberOptions(tags = "@Regression", features = "src/test/resources/", glue = {"steps"}, plugin = {"pretty",
+        "html:target/site/cucumber-reports.html", "json:target/cucumber.json"})
 public class CucumberTestRunner extends AbstractTestNGCucumberTests {
 
 }
