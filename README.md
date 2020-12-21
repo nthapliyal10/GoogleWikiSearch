@@ -16,7 +16,7 @@ The project consists of -
    #### src/test/resources : feature files
    
 
-## src/main/java
+## src/main/java test
   ### SearchPage class
   This class consists of all the web-elements, and the corresponding functions that can be performed through the page. 'Page factory' is used to initialize the elements at once using the 'PageFactory.initElements()' method.
   Page class consists of 3 sections - 
