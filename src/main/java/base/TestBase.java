@@ -14,16 +14,16 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
 
     public static WebDriver driver;
-    public static Properties prop;
+    public static Properties propertiesFile;
     public static String userdir = System.getProperty("user.dir");
 
     //initialization constructor and load the properties file
     public TestBase() {
         try {
-            prop = new Properties();
-            FileInputStream ip = new FileInputStream(userdir + "/src/main/"
+            propertiesFile = new Properties();
+            FileInputStream configPropertiesFile = new FileInputStream(userdir + "/src/main/"
                     + "/resources/config/config.properties");
-            prop.load(ip);
+            prop.load(configPropertiesFile);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
